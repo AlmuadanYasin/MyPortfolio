@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/post/{post_title}', function ($post_title) {
+    return view('post')->with("title", $post_title);
+})->name('post');
+
+Route::get('/landing', function () {
+    return view('landing');
+})->name("landing");
